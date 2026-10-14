@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff9b16">
+  <title>Rohans Web | Welcome</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px;font-family:Arial,Helvetica,sans-serif;color:#2c2114;background:radial-gradient(circle at 15% 15%,#fff5ad,transparent 32%),radial-gradient(circle at 90% 85%,#ff7840,transparent 35%),linear-gradient(135deg,#ffb000,#ffe27a 52%,#ff8b32)}
+    main{width:min(100%,620px);padding:clamp(28px,6vw,54px);border:1px solid #ffffffb5;border-radius:28px;background:#ffffffed;box-shadow:0 24px 80px #7333002b}
+    .brand{font-size:14px;letter-spacing:2px;font-weight:900}.brand span{color:#e66d00}
+    .pill{display:inline-block;margin-top:38px;padding:8px 12px;border-radius:999px;background:#fff0ce;color:#975000;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    h1{font-size:clamp(36px,8vw,60px);letter-spacing:-2px;line-height:1.05;margin:18px 0 14px}
+    p{font-size:16px;line-height:1.7;color:#6c5c4a;margin:0}
+    .line{height:5px;width:76px;border-radius:99px;background:linear-gradient(90deg,#ffb000,#ff7130);margin-top:30px}
+    footer{margin-top:38px;padding-top:18px;border-top:1px solid #eee2d3;color:#998875;font-size:12px}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">ROHANS <span>WEB</span></div>
+    <div class="pill">Access confirmed</div>
+    <h1 id="greeting">Hi there</h1>
+    <p id="message">Welcome to Rohans Web. Your access link has opened successfully.</p>
+    <div class="line"></div>
+    <footer>ROHANS WEB · PERSONAL WELCOME PAGE</footer>
+  </main>
+  <script>
+    // The Apps Script sign-in page redirects here with ?name=Rohan
+    // This query parameter is for displaying a greeting, not for proving access.
+    const params = new URLSearchParams(window.location.search);
+    const suppliedName = (params.get('name') || '').trim();
+    const safeName = suppliedName.replace(/\s+/g, ' ').slice(0, 80);
+    document.getElementById('greeting').textContent =
+      safeName ? 'Hi ' + safeName : 'Hi there';
+  </script>
+</body>
+</html>
